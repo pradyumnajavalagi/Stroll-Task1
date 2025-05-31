@@ -5,8 +5,21 @@ import 'package:stroll_task1/features/bonfire/widgets/bottom_nav_bar.dart';
 import 'package:stroll_task1/features/bonfire/widgets/gradients.dart';
 import 'package:stroll_task1/features/bonfire/widgets/option_button.dart';
 
-class BonfireScreen extends StatelessWidget {
+class BonfireScreen extends StatefulWidget {
   const BonfireScreen({super.key});
+
+  @override
+  State<BonfireScreen> createState() => _BonfireScreenState();
+}
+
+class _BonfireScreenState extends State<BonfireScreen> {
+  int _selectedOption = -1; // -1 means none selected
+
+  void _selectOption(int index) {
+    setState(() {
+      _selectedOption = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +31,14 @@ class BonfireScreen extends StatelessWidget {
             fit: BoxFit.cover,
             width: double.infinity,
           ),
-
           const GradientOne(),
-
           const GradientTwo(),
-
           const GradientThree(),
           SafeArea(
             child: Column(
               children: [
                 const SizedBox(height: 16),
+                // TITLE & INFO
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -49,65 +60,33 @@ class BonfireScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 4),
-                    const Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: AppColors.textPurple,
-                      size: 28,
-                    ),
+                    const Icon(Icons.keyboard_arrow_down_rounded, color: AppColors.textPurple, size: 28),
                   ],
                 ),
                 const SizedBox(height: 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.asset(
-                      'assets/icons/timer.svg',
-                      width: 13,
-                      height: 15,
-                    ),
-                    const Text(
-                      ' 22h 00m',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'Proxima Nova',
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.none,
-                        color: Colors.white,
-                      ),
-                    ),
+                    SvgPicture.asset('assets/icons/timer.svg', width: 13, height: 15),
+                    const Text(' 22h 00m', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white)),
                     const SizedBox(width: 16),
-                    SvgPicture.asset(
-                      'assets/icons/person.svg',
-                      width: 10,
-                      height: 13,
-                    ),
-                    const Text(
-                      ' 103',
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: 'Proxima Nova',
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.none,
-                        color: Colors.white,
-                      ),
-                    ),
+                    SvgPicture.asset('assets/icons/person.svg', width: 10, height: 13),
+                    const Text(' 103', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600, color: Colors.white)),
                   ],
                 ),
+
+                // PROFILE AND QUESTION
                 SizedBox(height: MediaQuery.of(context).size.height * 0.39),
                 Stack(
-                  // mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 22.0),
-                        child: Container( // border width
+                        child: Container(
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            border: Border.all(
-                              color: AppColors.backgroundDark,
-                              width: 4.0,
-                            ),
+                            border: Border.all(color: AppColors.backgroundDark, width: 4.0),
                           ),
                           child: const CircleAvatar(
                             radius: 26,
@@ -121,7 +100,6 @@ class BonfireScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // const SizedBox(height: 30),
                           Container(
                             decoration: BoxDecoration(
                               color: AppColors.backgroundDark,
@@ -135,17 +113,7 @@ class BonfireScreen extends StatelessWidget {
                             ),
                             child: const Padding(
                               padding: EdgeInsets.only(right: 8, left: 12),
-                              child: Text(
-                                'Angelina, 28',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'Proxima Nova',
-                                  fontWeight: FontWeight.w600,
-                                  decoration: TextDecoration.none,
-                                  color: Colors.white,
-                                ),
-                                textAlign: TextAlign.left,
-                              ),
+                              child: Text('Angelina, 28', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: Colors.white)),
                             ),
                           ),
                           const SizedBox(height: 8),
@@ -153,14 +121,7 @@ class BonfireScreen extends StatelessWidget {
                             padding: EdgeInsets.only(left: 20.0, right: 30),
                             child: Text(
                               "What is your favorite time of the day?",
-                              style: TextStyle(
-                                height: 1,
-                                fontSize: 22,
-                                fontFamily: 'Proxima Nova',
-                                fontWeight: FontWeight.w700,
-                                decoration: TextDecoration.none,
-                                color: Colors.white,
-                              ),
+                              style: TextStyle(height: 1, fontSize: 22, fontWeight: FontWeight.w700, color: Colors.white),
                             ),
                           ),
                         ],
@@ -168,20 +129,23 @@ class BonfireScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+
+                // USER COMMENT
                 const SizedBox(height: 8),
-                const Text(" \"Mine is definitely the peace in the morning.\"",
+                const Text(
+                  "\"Mine is definitely the peace in the morning.\"",
                   style: TextStyle(
                     fontSize: 13,
-                    fontFamily: 'Proxima Nova',
-                    fontWeight: FontWeight.w400,
-                    decoration: TextDecoration.none,
                     fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400,
                     color: AppColors.textPurpleLight,
                   ),
                 ),
+
+                // OPTION BUTTONS
                 const SizedBox(height: 16),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     children: [
                       Row(
@@ -190,32 +154,39 @@ class BonfireScreen extends StatelessWidget {
                             child: OptionButton(
                               label: 'A',
                               text: 'The peace in the early mornings',
+                              isSelected: _selectedOption == 0,
+                              onTap: () => _selectOption(0),
                             ),
                           ),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           Expanded(
                             child: OptionButton(
                               label: 'B',
                               text: 'The magical golden hours',
+                              isSelected: _selectedOption == 1,
+                              onTap: () => _selectOption(1),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 12),
+                      const SizedBox(height: 12),
                       Row(
                         children: [
                           Expanded(
                             child: OptionButton(
                               label: 'C',
                               text: 'Wind-down time after dinners',
+                              isSelected: _selectedOption == 2,
+                              onTap: () => _selectOption(2),
                             ),
                           ),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           Expanded(
                             child: OptionButton(
                               label: 'D',
                               text: 'The serenity past midnight',
-                              isSelected: true, // Example of selected option
+                              isSelected: _selectedOption == 3,
+                              onTap: () => _selectOption(3),
                             ),
                           ),
                         ],
@@ -223,69 +194,52 @@ class BonfireScreen extends StatelessWidget {
                     ],
                   ),
                 ),
+
+                // INSTRUCTIONS + MIC & FORWARD
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                   child: Row(
                     children: [
-                      const Text('Pick your option.\nSee who has a similar mind.',
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: 'Proxima Nova',
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none,
-                          color: AppColors.textLight,
-                        ),
+                      const Text(
+                        'Pick your option.\nSee who has a similar mind.',
+                        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppColors.textLight),
                       ),
                       const Spacer(),
                       Container(
                         decoration: BoxDecoration(
-                          border: Border.all(
-                            color: AppColors.primary,
-                            width: 1.5,
-                          ),
+                          border: Border.all(color: AppColors.primary, width: 1.5),
                           shape: BoxShape.circle,
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.keyboard_voice_rounded,
-                            color: AppColors.primary,
-                            size: 35,
-                          ),
+                          child: Icon(Icons.keyboard_voice_rounded, color: AppColors.primary, size: 35),
                         ),
                       ),
                       const SizedBox(width: 8),
                       Container(
                         decoration: BoxDecoration(
                           color: AppColors.primary,
-                          border: Border.all(
-                            color: AppColors.primary,
-                            width: 1.5,
-                          ),
+                          border: Border.all(color: AppColors.primary, width: 1.5),
                           shape: BoxShape.circle,
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(4.0),
-                          child: Icon(
-                            Icons.arrow_forward_rounded,
-                            color: Colors.black,
-                            size: 35,
-                          ),
+                          child: Icon(Icons.arrow_forward_rounded, color: Colors.black, size: 35),
                         ),
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
-
-          const BottomNavBar()
+          const BottomNavBar(),
         ],
       ),
     );
   }
 }
+
 
 
 
