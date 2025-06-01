@@ -112,6 +112,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                               ),
                             ],
                             fontSize: 12,
+                            fontFamily: 'Proxima Nova',
                             fontWeight: FontWeight.w600,
                             color: Colors.white)),
                     const SizedBox(width: 16),
@@ -156,6 +157,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                                     0.4), // shadow color with opacity
                               ),
                             ],
+                            fontFamily: 'Proxima Nova',
                             fontWeight: FontWeight.w600,
                             color: Colors.white)),
                   ],
@@ -187,6 +189,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                               padding: EdgeInsets.only(right: 8, left: 14),
                               child: Text('Angelina, 28',
                                   style: TextStyle(
+                                    fontFamily: 'Proxima Nova',
                                       fontSize: 11,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white)),
@@ -200,6 +203,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                               style: TextStyle(
                                   height: 1.1,
                                   fontSize: 20,
+                                  fontFamily: 'Proxima Nova',
                                   fontWeight: FontWeight.w700,
                                   color: Colors.white),
                             ),
@@ -235,6 +239,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                     fontSize: 12,
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.w400,
+                    fontFamily: 'Proxima Nova',
                     color: AppColors.textPurpleLight,
                   ),
                 ),
@@ -306,6 +311,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
+                            fontFamily: 'Proxima Nova',
                             color: AppColors.textLight),
                       ),
                       const Spacer(),
@@ -346,7 +352,7 @@ class _BonfireScreenState extends State<BonfireScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.08,
+                  height: MediaQuery.of(context).size.height * 0.075,
                 ),
               ],
             ),

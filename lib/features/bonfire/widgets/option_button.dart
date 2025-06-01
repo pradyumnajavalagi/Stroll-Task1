@@ -56,7 +56,8 @@ class OptionButton extends StatelessWidget {
                   style: TextStyle(
                     color: AppColors.textPrimary,
                     fontSize: MediaQuery.of(context).size.width < 400 ? 12 : 14,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: 'Proxima Nova',
                   ),
                 ),
               ),
@@ -69,6 +70,7 @@ class OptionButton extends StatelessWidget {
                   color: AppColors.textPrimary,
                   fontSize: MediaQuery.of(context).size.width < 400 ? 12 : 14,
                   fontWeight: FontWeight.w400,
+                  fontFamily: 'Proxima Nova',
                 ),
                 softWrap: true,
               ),
