@@ -15,41 +15,44 @@ class BottomNavBar extends StatelessWidget {
       child: Container(
         color: AppColors.background,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-              vertical: 16.0, horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SvgPicture.asset(
                 'assets/icons/card.svg',
-                width: 35,
-                height: 35,
+                width: 28,
+                height: 28,
                 colorFilter: const ColorFilter.mode(
                   AppColors.textMuted,
                   BlendMode.srcIn,
                 ),
               ),
               badges.Badge(
-                position: badges.BadgePosition.topEnd(top: -4, end: -4),
-                badgeStyle: const badges.BadgeStyle(
+                position: badges.BadgePosition.topEnd(top: 1, end: -10),
+                badgeStyle: badges.BadgeStyle(
                   shape: badges.BadgeShape.square,
                   badgeColor: AppColors.primaryLight,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  borderSide: BorderSide(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(
                     color: AppColors.background,
                     width: 1.5,
                   ),
                 ),
                 badgeContent: const Text(
-                  '       ',
+                  '   ',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 4,
+                    fontSize: 7,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 child: SvgPicture.asset(
                   'assets/icons/bonfire.svg',
+                  width: 28,
+                  height: 28,
                   colorFilter: const ColorFilter.mode(
                     AppColors.textMuted,
                     BlendMode.srcIn,
@@ -57,26 +60,32 @@ class BottomNavBar extends StatelessWidget {
                 ),
               ),
               badges.Badge(
-                position: badges.BadgePosition.topEnd(top: -4, end: -4),
-                badgeStyle: const badges.BadgeStyle(
+                position: badges.BadgePosition.topEnd(top: 1, end: -8),
+                badgeStyle: badges.BadgeStyle(
                   shape: badges.BadgeShape.square,
                   badgeColor: AppColors.primaryLight,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  borderSide: BorderSide(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 5, vertical: 2),
+                  borderRadius: BorderRadius.circular(20),
+                  borderSide: const BorderSide(
                     color: AppColors.background,
                     width: 1.5,
                   ),
                 ),
                 badgeContent: const Text(
-                  ' 10 ',
+                  '10',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 6,
+                    fontSize: 7,
                     fontWeight: FontWeight.bold,
+                    fontFamily: 'Proxima Nova',
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 child: SvgPicture.asset(
                   'assets/icons/message.svg',
+                  width: 28, // slightly larger to match scale
+                  height: 28,
                   colorFilter: const ColorFilter.mode(
                     AppColors.textMuted,
                     BlendMode.srcIn,
@@ -85,8 +94,8 @@ class BottomNavBar extends StatelessWidget {
               ),
               SvgPicture.asset(
                 'assets/icons/person.svg',
-                width: 35,
-                height: 35,
+                width: 28,
+                height: 28,
                 colorFilter: const ColorFilter.mode(
                   AppColors.textMuted,
                   BlendMode.srcIn,

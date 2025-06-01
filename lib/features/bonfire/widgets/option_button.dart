@@ -18,10 +18,10 @@ class OptionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(12),
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -44,9 +44,7 @@ class OptionButton extends StatelessWidget {
               decoration: BoxDecoration(
                 color: isSelected ? AppColors.primary : Colors.transparent,
                 border: Border.all(
-                  color: isSelected
-                      ? AppColors.primary
-                      : AppColors.textPrimary,
+                  color: isSelected ? AppColors.primary : AppColors.textPrimary,
                   width: 1.5,
                 ),
                 shape: BoxShape.circle,
@@ -55,9 +53,9 @@ class OptionButton extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   label,
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: AppColors.textPrimary,
-                    fontSize: 14,
+                    fontSize: MediaQuery.of(context).size.width < 400 ? 12 : 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -67,9 +65,10 @@ class OptionButton extends StatelessWidget {
             Flexible(
               child: Text(
                 text,
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textPrimary,
-                  fontSize: 14,
+                  fontSize: MediaQuery.of(context).size.width < 400 ? 12 : 14,
+                  fontWeight: FontWeight.w400,
                 ),
                 softWrap: true,
               ),
